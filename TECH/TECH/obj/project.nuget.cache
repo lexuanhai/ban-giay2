@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mBqGEsTcKad4MKlzMSqmk8khljqp5JAOcUDG4ggzHn3EBfgvvpRrpQdgwWdGmFQsoQMXBXgRor3ZRLTaaGzArA==",
+  "dgSpecHash": "wuLDJT0hqgjEiBPMvTRun3l5yiLEPzPMvRlrViCMUwB8Lr9VSS71kkjLg49bxqKfk1ITKRk8c+/70CbMmr1nyQ==",
   "success": true,
-  "projectFilePath": "F:\\Hoc Tap\\C#\\Website\\ban-giay-5-2\\TECH\\TECH\\TECH.csproj",
+  "projectFilePath": "F:\\Hoc Tap\\C#\\Website\\ban-giay-lost-new\\TECH\\TECH\\TECH.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\emcua\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\emcua\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
