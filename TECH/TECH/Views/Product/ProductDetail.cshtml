@@ -1,0 +1,618 @@
+﻿@using TECH.Areas.Admin.Models
+@model ProductModelView
+@{
+    ViewData["Title"] = "ProductCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 14px;
+    }
+
+    .tt-prod {
+        color: #4fb100;
+        text-transform: uppercase;
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    .min-wrap h2 {
+        padding: 10px 0;
+        color: #f8456a;
+        font-weight: bold;
+    }
+
+    h2.price-prod2 {
+        font-size: 16px;
+        color: #999 !important;
+        margin: 0;
+    }
+
+    .price-prod {
+        color: #f00;
+        font-size: 25px;
+        margin: 4px 0px;
+    }
+
+
+    .product-detail .tt-prod {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    .product-detail .price-prod {
+        padding: 0px 0px;
+        color: #f8456a;
+        font-weight: bold;
+    }
+
+    .product-detail .price-prod2 {
+        font-weight: bold;
+        padding-bottom: 0px;
+        padding-top: 3px;
+    }
+
+    .btn-add-cart {
+        background: #8fa815;
+        padding: 6px 0px !important;
+        color: #fff;
+    }
+
+    .nav-tabs {
+        border-bottom: 2px solid #8fa815;
+    }
+
+    .product-detail h2 {
+        padding: 10px 0;
+        color: #f8456a;
+        font-weight: bold;
+    }
+
+    .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+        color: #fff;
+        cursor: default;
+        background-color: #8fa815;
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+        padding: 10px;
+        /* height: 40px; */
+        display: inline-block;
+    }
+
+    .nav-tabs > li {
+        margin-bottom: 0px;
+    }
+
+    .product-content {
+        border: 1px solid #ddd;
+    }
+
+    .product-content-left {
+        border-right: 1px solid #ddd;
+        padding: 20px;
+    }
+
+    .mota {
+        margin-top: 40px;
+    }
+
+    .tab-content {
+        padding: 20px;
+    }
+
+    .sub_desc {
+        margin-top: 20px;
+        background-color: #e7ffe2;
+        border: 1px solid #b1dab3;
+        padding: 10px;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -o-border-radius: 5px;
+        -moz-box-shadow: inset 1px 1px 1px #fff;
+        -webkit-box-shadow: inset 1px 1px 1px #fff;
+        box-shadow: inset 1px 1px 1px #fff;
+        -o-box-shadow: inset 1px 1px 1px #fff;
+        color: #189001;
+        margin-bottom: 19px;
+    }
+
+        .sub_desc p {
+            margin: 0;
+            padding: 5px 0px;
+        }
+
+            .sub_desc p a {
+                background: #89a600;
+                padding: 2px 6px;
+                border-radius: 3px;
+                color: #fff !important;
+            }
+
+    .txt-title, .txt-title-danh-muc {
+        margin: 11px 0px;
+    }
+
+    .danh-muc-name {
+        color: #0071c5;
+        font-weight: bold;
+    }
+
+    .box-quantity {
+        margin: 5px 0px;
+        display: inline-flex;
+    }
+
+    .bg-primary {
+        background-color: #8fa815 !important;
+    }
+
+    .modal-title {
+        color: #fff !important;
+        font-size: 20px;
+    }
+
+    .choosesize {
+        background: #f4f4f4;
+        padding: 10px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+    .choosesize, ul.ulsize li {
+    border: 1px solid #dadada;
+}
+
+        .choosesize li {
+    list-style: none;
+}
+
+        .choosesize p {
+            font-weight: 400;
+            text-transform: uppercase;
+            margin: 0;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        ul.ulsize li:hover {
+            border-color: red;
+        }
+
+    ul.ulsize li {
+        float: left;
+        margin-right: 5px;
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    ul.ulsize li.tick {
+    /*background: url(images/sticked.png) right bottom no-repeat #fff;*/
+    border-color: red;
+}
+</style>
+<input type="hidden" class="product-id" value="@Model.id" />
+<div class="product-detail custom-height">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="breadcum">
+
+                <ul>
+                    <li><a title="Shop hoa tươi 360 | Dịch vụ điện hoa uy tín hoatuoi360.vn" href="/">Trang chủ</a></li>
+                    @*  <li><a href="/hoa-giang-sinh/">Hoa giáng sinh</a></li>*@
+                </ul>
+                <div class="clear"></div>
+            </div>
+            <div class="product-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="product-content-left">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="m-i2-cpd box-uof-img">
+                                        <img style="width: 100%; height: 466px;" src="/product-image/@Model.ImageModelView[0].name" class=" ls-is-cached lazyloaded" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="hidden" value="@(Model.price_sell.HasValue && Model.price_sell.Value > 0 ? Model.price_sell.Value:0)" class="product-price" />
+                                    <div class="b-s-1 bg-shadow">
+                                        <h4 class="tt-prod NoneMB">@Model.name</h4>
+                                        <h2 class="price-prod NoneMB">
+                                            @{
+                                                string priceStr = "";
+                                                string price_reducedstr = "";
+                                                if (Model.price_sell.HasValue && Model.price_sell.Value > 0)
+                                                {
+                                                    priceStr = Model.price_sell.Value.ToString("#,###");
+                                                }
+                                                if (Model.price_reduced.HasValue && Model.price_reduced.Value > 0)
+                                                {
+                                                    price_reducedstr = Model.price_reduced.Value.ToString("#,###");
+                                                }
+
+                                            }
+                                            @priceStr đ
+                                        </h2>
+                                        <h2 class="price-prod2 NoneMB"><strike>@price_reducedstr đ</strike></h2>
+                                        <p class="txt-title-danh-muc">
+                                            <span class="danh-muc-lable">Danh mục: </span>
+                                            <span class="danh-muc-name"> @Model.categorystr</span>
+                                        </p>
+                                        <p class="txt-title-danh-muc">
+                                            <span class="danh-muc-lable">Thương hiệu: </span>
+                                            <span class="danh-muc-name"> @Model.trademarkStr</span>
+                                        </p>
+                                        @if (Model.SizesModelView != null && Model.SizesModelView.Count > 0)
+                                        {
+                                            int step = 0;
+                                            <div class="choosesize ">
+                                                <p>Chọn size: </p>
+                                                <ul class="ulsize">
+                                                    @foreach (var itemSize in Model.SizesModelView)
+                                                    {
+                                                        if(step == 0){
+                                                            <li onclick="AddSize(@itemSize.id,this)" class="sizes tick" data-size="@itemSize.id">@itemSize.name</li>
+                                                        }else{
+                                                            <li onclick="AddSize(@itemSize.id,this)" class="sizes" data-size="@itemSize.id">@itemSize.name</li>
+                                                        }
+                                                        step++;
+                                                    }
+                                                    @*
+                                                    <li>41</li>
+                                                    <li>42</li>
+                                                    <li>43</li>
+                                                    <li>44</li>*@
+                                                </ul>
+                                            </div>
+                                        }
+                                        
+
+                                        <div class="input-group box-quantity">
+                                            <span class="input-group-btn mr-2" style="margin: 0px !important;">
+                                                <button type="button" data-type="minus" data-field="" class="quantity-left-minus minus btn">
+                                                    <i class="ion-ios-remove">-</i>
+                                                </button>
+                                            </span>
+                                            <input type="number" min="1" value="1" id="quantity" class="form-control input-number" oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1" style="padding: 0px 10px; flex: unset;min-width: 100px;">
+                                            <span class="input-group-btn ml-2" style="margin: 0px !important;">
+                                                <button type="button" data-type="plus" class="quantity-right-plus btn plus">
+                                                    <i class="ion-ios-add">+</i>
+                                                </button>
+                                            </span>
+                                        </div>
+
+                                        <div class="sub_desc">
+                                            <p>
+                                                <a>1.</a>&nbsp;Tặng miễn phí banner, thiệp (trị giá 20.000đ)
+                                            </p>
+                                            <p>
+                                                <a>2.</a><span>&nbsp;Giao hàng trên toàn quốc</span>
+                                            </p>
+                                            <p>
+                                                <a>3.</a>&nbsp;Giao gấp trong 2h
+                                            </p>
+                                            <p>
+                                                <a>4.</a>&nbsp;Cam kết hàng chất lượng
+                                            </p>
+
+                                        </div>
+                                        <a href="javascript:void(0)" class="btn btn-black py-3 px-5 btn-block btn-add-cart" style="color: #fff;font-weight: bold;">
+                                            MUA NGAY <i class="ion-ios-add ml-1"></i>
+                                        </a>
+
+                                        @*<h4 class="gt-tt">Gọi điện thoại đặt mua: <span>0936 65 27 27 - 0977 301 303</span></h4>
+                                        <div class="tt-2prod">
+                                        <ul>
+                                        <li>Giao hàng trên toàn quốc</li>
+                                        <li>Giao nhanh <strong>sau 2h đặt hàng</strong></li>
+                                        </ul>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="mota">
+                                    <div class="nav-tabs-custom">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active">
+                                                <a href="#activity" data-toggle="tab">THÔNG TIN THÊM</a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="active tab-pane" id="activity">
+                                                @Html.Raw(Model.description)
+                                                @* <h2> Bó hoa sinh nhật - My beloved bao gồm:</h2>
+                                                <p> - Hoa cúc ping pong trắng,</p>
+                                                <p> - Hoa hồng đỏ,</p>
+                                                <p> - Hoa baby trắng,&nbsp;</p>
+                                                <p> - Lá Dola nhập khẩu,</p>
+                                                <p> - Hoa, lá trang trí,</p>
+                                                <p> - Giấy gói Hàn Quốc sang trọng, hiện đại</p>
+                                                <p style="text-align: center;">
+                                                <img alt="Bó hoa sinh nhật - My beloved" src="/uploads/file/HOA%20B%C3%93/hoatuoi360-hoabo-first-snow-2.jpg" style="width: 550px; height: 683px;">
+                                                </p>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @*<div class="col-sm-4">
+
+                        </div>*@
+                        @*<div class="col-lg-6 mb-5" style="text-align:center">
+                        <a href="#" class="image-popup" style="height: 40vh;">
+                        <img src="/product-image/@Model.image" alt="Colorlib Template" class="img-fluid" style="height: 450px;">
+                        </a>
+                        </div>
+                        <div class="col-lg-6 product-details pl-md-5">
+                        <h3>@Model.name</h3>
+                        <div class="row">
+                        <div class="col-md-4" style="color: rgb(0, 0, 0);">
+                        Danh mục: <span style="color: green;"> @Model.categorystr</span>
+                        </div>
+                        <div class="col-md-4" style="color: rgb(0, 0, 0);">
+                        Tình trạng:
+                        @if (Model.quantity > 0)
+                        {
+                        <span style="color: green;"> Còn hàng</span>
+                        }
+                        else
+                        {
+                        <span style="color: red; display: none;"> Hết hàng</span>
+                        }
+
+
+                        </div>
+                        <div class="col-md-4" style="color: rgb(0, 0, 0);">
+                        <!----> <span style="color: green;">@(Model.differentiate.HasValue ? Model.differentiate.Value == 0 ? "Hàng mới" : "Hàng cũ" : "")</span>
+                        </div>
+                        </div>
+                        @{
+                        string priceStr = "";
+                        if (Model.price.HasValue && Model.price.Value > 0)
+                        {
+                        priceStr = Model.price.Value.ToString("#,###");
+                        }
+
+                        }
+                        <input type="hidden" value="@Model.price" class="product-price" />
+
+                        <p class="price"><span class="price-color">@priceStr<i>đ</i></span></p>
+                        @if (!string.IsNullOrEmpty(Model.color))
+                        {
+                        var color = "";
+                        var lstColor = new List<string>();
+                        @if (Model.color.Contains(","))
+                        {
+                        var _colorSplit = Model.color.Split(',');
+                        foreach (var item in _colorSplit)
+                        {
+                        lstColor.Add(item);
+                        }
+                        }
+                        else
+                        {
+                        lstColor.Add(Model.color);
+                        }
+                        <div>
+                        <lable style="float: left; margin-right: 10px;">Màu:</lable>
+                        <div>
+                        <select id="selectColor" style="height: 31px; padding-left: 10px; min-width: 100px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px;">
+                        @foreach (var item in lstColor)
+                        {
+                        <option value="@item">@item</option>
+                        }
+                        </select>
+                        </div>
+                        </div>
+                        }
+
+                        <div class="row mt-4">
+                        <div class="w-100"></div>
+                        <div class="input-group col-md-6 d-flex mb-3">
+                        <span class="input-group-btn mr-2">
+                        <button type="button" data-type="minus" data-field="" class="quantity-left-minus minus btn">
+                        <i class="ion-ios-remove"></i>
+                        </button>
+                        </span>
+                        <input type="number" min="1" value="1" id="quantity" class="form-control input-number" oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1" style="min-width: 100px; padding: 0px 10px; flex: unset;">
+                        <span class="input-group-btn ml-2">
+                        <button type="button" data-type="plus" class="quantity-right-plus btn plus">
+                        <i class="ion-ios-add"></i>
+                        </button>
+                        </span>
+                        </div>
+                        @if (Model.quantity > 0)
+                        {
+                        <div class="col-md-12">
+                        <p style="color: rgb(0, 0, 0);">Còn @Model.quantity sản phẩm</p>
+                        </div>
+                        }
+
+                        </div>
+                        @if (!string.IsNullOrEmpty(Model.endow))
+                        {
+                        <div class="row mb-4">
+                        <div class="col-md-12">
+                        <div class="card">
+                        <h5 class="card-header endow">Ưu đãi</h5>
+                        <div class="card-body">
+                        <p>@Model.endow</p>
+                        </div>
+                        </div>
+                        </div>
+                        </div>
+                        }
+
+                        <div class="row">
+                        <div class="col-md-12">
+                        <p>
+                        <a href="javascript:void(0)" class="btn btn-black py-3 px-5 btn-block btn-add-cart">
+                        Thêm vào giỏ <i class="ion-ios-add ml-1"></i>
+                        </a>
+                        </p>
+                        </div>
+                        </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    @*<section class="ftco-section ftco-degree-bg" style="padding-top:0px;padding-bottom: 0px;">
+    <div class="container">
+    <div class="row">
+    <div class="col-lg-7 custom-description">
+    <h2 class="mb-3">Mô tả sản phẩm</h2>
+    @Html.Raw(Model.description)
+    </div>
+    <div class="col-lg-5 sidebar">
+    @if (!string.IsNullOrEmpty(Model.specifications))
+    {
+    <div class="sidebar-box box-specifications" style="margin-bottom:0px">
+    <h3 class="heading" style="background-color: rgb(0, 0, 0); padding: 1vh; color: rgb(255, 255, 255);margin-bottom: 0px;padding: 10px 10px;">Thông số kỹ thuật</h3>
+    @Html.Raw(Model.specifications)
+    </div>
+    }
+
+
+    @await Component.InvokeAsync("ProductsLikeComponent", new{categoryId=Model.category_id})
+
+    </div>
+    </div>
+    </div>
+    </section>
+
+    @await Component.InvokeAsync("RelatedProductsComponent",new {categoryId= Model.category_id,productId=Model.id})*@
+
+</div>
+<div id="categoryModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalTitle" class="modal fade" aria-modal="true">
+    <div role="document" class="modal-dialog modal-dialog-centered">
+        <form id="form-submit" action="#" style="width: 100%;">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 id="titleModal" class="modal-title white ">Vui lòng đăng nhập</h5>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <a href="/dang-nhap" class="btn btn-primary me-1 mb-1 btn-submit-format btn-success" style="border: none;color: #fff;">Đăng nhập</a>
+                    <a href="#" class="btn btn-primary me-1 mb-1 btn-submit-format" data-dismiss="modal" style="background: #ddd; border: none;color: black;">Hủy</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="categoryModalOverStock" tabindex="-1" role="dialog" aria-labelledby="categoryModalTitle" class="modal fade" aria-modal="true">
+    <div role="document" class="modal-dialog modal-dialog-centered">
+        <form id="form-submit" action="#" style="width: 100%;">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 id="titleModal" class="modal-title white ">Số lượng mua vượt quá số lượng trong kho </h5>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p>Tổng số lượng còn lại trong kho là: <span class="soluongcong"></span></p>
+                </div>
+                <div class="modal-footer">
+                    @*<a href="/dang-nhap" class="btn btn-primary me-1 mb-1 btn-submit-format btn-success" style="border: none;color: #fff;">Đăng nhập</a>*@
+                    <a href="#" class="btn btn-primary me-1 mb-1 btn-submit-format" data-dismiss="modal" style="background: #ddd; border: none;color: black;">OK</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="CartsModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalTitle" class="modal fade" aria-modal="true">
+    <div role="document" class="modal-dialog modal-dialog-centered">
+        <form id="form-submit" action="#">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 id="titleModal" class="modal-title white ">Bạn đã thêm vào giỏ hàng thành công</h5>
+                    <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+                </div>
+                @*  <div class="modal-body">
+                </div>*@
+                <div class="modal-footer">
+
+                    <a href="#" class="btn btn-primary me-1 mb-1 btn-submit-format" data-dismiss="modal" style="background: green;color: #fff;">OK</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".plus").click(function () {
+                var value = parseInt($("#quantity").val());
+                if (value < 9999 && value >= 1) {
+                    $("#quantity").val(value + 1);
+                }
+
+            })
+            $(".minus").click(function () {
+                var value = parseInt($("#quantity").val());
+                if (value > 1) {
+                    $("#quantity").val(value - 1);
+                }
+
+            })
+            $(".btn-add-cart").click(function () {
+                var price = parseInt($("#quantity").val()) * parseInt($(".product-price").val());
+                $.ajax({
+                    url: '/Carts/Add',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        product_id: $(".product-id").val(),
+                        quantity: $("#quantity").val(),
+                        price: price,
+                        sizeId: parseInt($(".sizes.tick").attr('data-size'))
+                    },
+                    beforeSend: function () {
+                    },
+                    complete: function () {
+                    },
+                    success: function (response) {
+                        if (response.success) {
+                            $("#CartsModal").modal("show");
+                        }
+                        else if (response.overstock && response.tongsoconlai > 0) {
+                            $("#categoryModalOverStock").modal("show");
+                              $(".soluongcong").text(response.tongsoconlai);
+                            
+                        }
+                        else {
+                            $("#categoryModal").modal("show");
+                        }
+                    }
+                })
+
+            })
+
+        })
+        function AddSize(id,tag){
+            $(".sizes").removeClass("tick");
+            $(tag).addClass("tick");
+        }
+
+
+    </script>
+}
