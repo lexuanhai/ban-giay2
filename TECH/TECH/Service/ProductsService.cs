@@ -19,6 +19,7 @@ namespace TECH.Service
         ProductModelView GetByid(int id);
         int Add(ProductModelView view);
         bool Update(ProductModelView view);
+        bool UpdateImages(int productId,string images);
         bool Deleted(int id);
         void Save();
         bool IsProductNameExist(string name);
@@ -48,6 +49,21 @@ namespace TECH.Service
             var data = _productsRepository.FindAll().Any(p=>p.name == name);
             return data;
         }
+        public bool UpdateImages(int productId, string images)
+        {
+            if (productId > 0 && !string.IsNullOrEmpty(images))
+            {
+                var product = _productsRepository.FindAll(p => p.id == productId).FirstOrDefault();
+                if (product != null)
+                {
+                    product.images = images;
+                    _productsRepository.Update(product);
+                    Save();
+                    return true;
+                }
+            }
+            return false;
+        }
         public ProductModelView GetByid(int id)
         {
             var data = _productsRepository.FindAll(p => p.id == id).FirstOrDefault();
@@ -64,6 +80,8 @@ namespace TECH.Service
                     trademarkId = data.trademarkId,
                     trademarkStr = data.trademarkId.HasValue && data.trademarkId.Value > 0 ? Common.GetTrademark(data.trademarkId.Value) : "",
                     price_reduced = data.price_reduced.HasValue ? data.price_reduced.Value:0,
+                    sizes = !string.IsNullOrEmpty(data.sizes) ? data.sizes : "",
+                    images = data.images,
                     //price_sell_str = data.price_sell.HasValue && data.price_sell.Value > 0 ? data.price_sell.Value.ToString("#,###") : "",
                     //price_import_str = data.price_import.HasValue && data.price_import.Value > 0 ? data.price_import.Value.ToString("#,###") : "",
                     //price_reduced_str = data.price_reduced.HasValue && data.price_reduced.Value > 0 ? data.price_reduced.Value.ToString("#,###") : "",
@@ -143,7 +161,8 @@ namespace TECH.Service
                     dataServer.price_reduced = view.price_reduced.HasValue ? view.price_reduced.Value : 0;
 
                     dataServer.status = view.status;
-
+                    dataServer.images = view.images;
+                    dataServer.sizes = view.sizes;
                     dataServer.description = view.description;
                     _productsRepository.Update(dataServer);                                        
                     return true;

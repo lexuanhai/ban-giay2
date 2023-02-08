@@ -28,7 +28,8 @@
         status: "",
         endow: "",
         type: "",
-        differentiate: ""
+        differentiate: "",
+        sizes:""
     }
     self.ProductSearch = {
         name: "",
@@ -54,8 +55,8 @@
                 var item = data[i];
                 html += "<tr>";
                 html += "<td>" + (++index) + "</td>";
-                if (item.avatar != null) {
-                    html += "<td> <img src=/product-image/" + item.avatar + " class=\"item-image\" /></td>";
+                if (item.images != null) {
+                    html += "<td> <img src=/product-image/" + item.images + " class=\"item-image\" /></td>";
                 } else {
                     html += "<td> <img src=/image-default/default.png class=\"item-image\" /></td>";
                 }
@@ -405,8 +406,10 @@
                 }
             },
             submitHandler: function (form) {
-                debugger
                 self.GetValue();
+                //if (self.Product.sizes == null || self.Product.sizes == "") {
+                //    alert("")
+                //}
                 if (self.IsUpdate) {
                     self.Update(self.Product);
                     if (self.ProductImages != null && self.ProductImages != "") {
@@ -453,6 +456,10 @@
         self.Product.trademarkId = $("#producttrademark").val();
         self.Product.status = $("#productstatus").val();
         self.Product.description = CKEDITOR.instances.productdescription.getData();
+         var sizes = $('.sizes').val();
+        if (sizes != null && sizes != "") {
+            self.Product.sizes = sizes.toString();
+        }
     }
 
     self.RenderHtmlByObject = function (view) {
@@ -468,16 +475,27 @@
         $("#producttrademark").val(view.trademarkId);
         $("#productstatus").val(view.status);
 
-        if (view.ImageModelView != null && view.ImageModelView.length > 0) {
-            self.ProductServerImages = view.ImageModelView;
-            for (var i = 0; i < view.ImageModelView.length; i++) {
-                var item = view.ImageModelView[i];
-                var html = "";
+        if (view.images != null && view.images != "") {
+            var html = "";
+            html = "<div class=\"box-image\" style=\"background-image:url(/product-image/" + view.images + ")\"></div>";
+            $(".productimages").append(html);
+        }
+        
+        //if (view.ImageModelView != null && view.ImageModelView.length > 0) {
+        //    self.ProductServerImages = view.ImageModelView;
+        //    for (var i = 0; i < view.ImageModelView.length; i++) {
+        //        var item = view.ImageModelView[i];
+        //        var html = "";
                 
-                html = "<div class=\"box-image\" style=\"background-image:url(/product-image/" + item.name + ")\"></div>";
+        //        html = "<div class=\"box-image\" style=\"background-image:url(/product-image/" + item.name + ")\"></div>";
 
-                $(".productimages").append(html);
-            }
+        //        $(".productimages").append(html);
+        //    }
+        //}
+        if (view.sizes != null && view.sizes != "") {
+            var strSplit = view.sizes.split(',');
+            $('#sizesupdate').val(strSplit);
+            $('#sizesupdate').trigger('change');
         }
 
         CKEDITOR.instances.productdescription.setData(view.description);
@@ -603,6 +621,6 @@
         $(".btn-back").click(function () {
             window.location.reload();
         })
-        $('.js-example-basic-multiple').select2();
+        $('.sizes,.sizes1').select2();
     })
 })(jQuery);

@@ -47,8 +47,13 @@
         font-size: 14px;
         margin: 5px 5px 0px 0px;
     }
+    .select2.select2-container.select2-container--default{
+        width: 100% !important;
+    }
 </style>
-
+@section Styles{
+        <link href="~/admin/plugins/select2.min.css" rel="stylesheet" />
+    }
 <div class="page-heading product-update" style="display:none">
     <div class="page-title">
         <div class="row">
@@ -166,6 +171,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                            <div class="row">
+                                            <div class="col-4">
+                                                <div class="form-group">
+                                                    <label for="validationTooltipUsername">Kích thước</label>
+                                                    <div class="" style="position: relative;">
+                                                                <select class="sizes form-control" multiple="multiple" id="sizesupdate">
+                                                            <option value="35">35</option>
+                                                            <option value="36">36</option>
+                                                            <option value="37">37</option>
+                                                            <option value="38">38</option>
+                                                            <option value="39">39</option>
+                                                            <option value="40">40</option>
+                                                            <option value="41">41</option>
+                                                            <option value="42">42</option>
+                                                            <option value="43">43</option>
+                                                            <option value="44">44</option>
+                                                            <option value="45">45</option>
+                                                        </select>
+                                                    </div>
+                                                    <!---->
+                                                </div>
+                                            </div>
+                                        </div>
                                     <div class="row">
                                         <div class="col-12 mb-2">
                                             <div class="form-group product-images">
@@ -209,6 +237,7 @@
     </section>
 </div>
 @section Scripts{
+    <script src="~/admin/plugins/select2.min.js"></script>
     <script src="~/admin/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="~/admin/plugins/ckeditor/ckeditor.js"></script>
     <script src="~/admin/product/product.js?v=@DateTime.Now.Ticks"></script>

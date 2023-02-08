@@ -42,11 +42,8 @@ namespace TECH.Areas.Admin.Controllers
             if (id > 0)
             {
                 model = _productsService.GetByid(id);
-
-               
                 if (model != null && !string.IsNullOrEmpty(model.name))
                 {                    
-
                     if (model.category_id.HasValue && model.category_id.Value > 0)
                     {
                         var category = _categoryService.GetByid(model.category_id.Value);
@@ -55,14 +52,12 @@ namespace TECH.Areas.Admin.Controllers
                     else
                     {
                         model.categorystr = "";
-                    }
-                   
+                    }                   
                 }
                 else
                 {
                     model.categorystr = "Chờ xử lý";
                 }
-
             }
             return Json(new
             {
@@ -105,38 +100,12 @@ namespace TECH.Areas.Admin.Controllers
                             fs.Flush();
                         }
                     }
-                    //else
-                    //{
-                    //    _lstImageName.Add(fileNameFormat);
-                    //}
-                }
-                //if (_lstImageName != null && _lstImageName.Count > 0)
-                //{
-                //    // remove ảnh đã tồn tại 
-                //    // xoa product image
-                //    var lstImage = _productsImagesService.GetImageProduct(productId);
-                //    _productsImagesService.RemoveProductId(productId);
-                     
-                //    var lstImagesIds = _imagesService.Add(_lstImageName);
-                //    if (lstImagesIds != null && lstImagesIds.Count > 0)
-                //    {                       
-                //        var lstProductImages = lstImagesIds.Select(p => new ProductImageModelView()
-                //        {
-                //            product_id = productId,
-                //            images_id = p
-                //        }).ToList();
-                //        if (lstImage != null && lstImage.Count > 0)
-                //        {
-                //            foreach (var item in lstImage)
-                //            {
-                //                _imagesService.Remove(item);
-                //            }
-                            
-                //        }
-                //        _productsImagesService.Add(lstProductImages);
-                //        _productsImagesService.Save();
-                //    }
-                //}
+                    if (productId > 0 && !string.IsNullOrEmpty(fileNameFormat))
+                    {
+                        _productsService.UpdateImages(productId, fileNameFormat);
+                    }
+                                      
+                }                
             }
             return Json(new
             {
