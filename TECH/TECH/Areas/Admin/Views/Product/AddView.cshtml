@@ -48,7 +48,9 @@
         margin: 5px 5px 0px 0px;
     }
 </style>
-
+@section Styles{
+    <link href="~/admin/plugins/select2.min.css" rel="stylesheet" />
+    }
 <div class="page-heading product-view">
     <div class="page-title">
         <div class="row">
@@ -165,6 +167,22 @@
                                                 <!---->
                                             </div>
                                         </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-4">
+                                            <div class="form-group">
+                                                <label for="validationTooltipUsername">Kích thước</label>
+                                                <div class="" style="position: relative;">
+                                                        <select class="js-example-basic-multiple form-control" name="states[]" multiple="multiple">
+                                                        <option value="AL">Alabama</option>
+                                                        ...
+                                                        <option value="WY">Wyoming</option>
+                                                    </select>
+                                                </div>
+                                                <!---->
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-12 mb-2">
@@ -209,6 +227,7 @@
     </section>
 </div>
 @section Scripts{
+    <script src="~/admin/plugins/select2.min.js"></script>
     <script src="~/admin/plugins/jquery-validation/jquery.validate.min.js"></script>
     <script src="~/admin/plugins/ckeditor/ckeditor.js"></script>
     <script src="~/admin/product/product.js?v=@DateTime.Now.Ticks"></script>

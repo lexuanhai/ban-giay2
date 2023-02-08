@@ -603,5 +603,6 @@
         $(".btn-back").click(function () {
             window.location.reload();
         })
+        $('.js-example-basic-multiple').select2();
     })
 })(jQuery);
