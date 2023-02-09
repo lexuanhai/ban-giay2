@@ -25,7 +25,7 @@
                                         <th >Tên sản phẩm</th>
                                         <th> Kích cỡ</th>
                                         <th >Giá tiền</th>
-                                        <th >Số lượng</th>
+                                        <th style="width: 13%;">Số lượng</th>
                                         <th >Tổng</th>
                                         <th ></th>
                                     </tr>
@@ -38,20 +38,20 @@
 
                                         <tr >
                                             <td class="image-prod custom-td">
-                                                <div class="img" style="width: 150px;height: 100px;"><img src="/product-image/@item.productModelView.ImageModelView[0].name" style="width: 100%; height: 100%;" class="img-product"></div>
+                                                <div class="img" style="width: 150px;height: 100px;"><img src="/product-image/@item.productModelView.images" style="width: 100%; height: 100%;" class="img-product"></div>
                                             </td>
                                             <td  class="product-name text-left custom-td">
                                                 <h3 style="font-size: 15px;color: #333;margin-bottom: 0px;">@item.productModelView.name</h3>
                                             </td>
                                             <td class="product-name text-left custom-td">
-                                                <h3 style="font-size: 15px;color: #333;margin-bottom: 0px;">@item.sizeStr</h3>
+                                                <h3 style="font-size: 15px;color: #333;margin-bottom: 0px;">@item.size</h3>
                                             </td>
                                             <td class="price custom-td">@Convert.ToDecimal(item.productModelView.price_sell).ToString("#,###")<i> đ</i></td>
                                             <td class="custom-td">
                                                 <div  class="input-group input-quantity">
                                                     <div  class="left-quantity"></div>
                                                     <div  class="input-group-prepend"><button  type="button" class="btn btn-primary minus" onclick="minusQuantity(@classQuantiy,@item.id)">-</button></div>
-                                                    <input  type="number" id="quantity" style="width: 27px;" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1" value="@item.quantity"  aria-label="Recipient's username" aria-describedby="basic-addon2" class="form-control @classQuantiy">
+                                                    <input type="number" id="quantity" style="width: 27px; padding:0px !important;text-align: center;" min="1" oninput="this.value = !!this.value && Math.abs(this.value) >= 1 ? Math.abs(this.value) : 1" value="@item.quantity" aria-label="Recipient's username" aria-describedby="basic-addon2" class="form-control @classQuantiy">
                                                     <div  class="input-group-append"><button  type="button" class="btn btn-primary plus" onclick="addQuantity(@classQuantiy,@item.id)">+</button></div>
                                                     <div  class="right-quantity"></div>
                                                 </div>

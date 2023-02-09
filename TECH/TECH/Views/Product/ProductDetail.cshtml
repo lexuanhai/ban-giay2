@@ -220,7 +220,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="m-i2-cpd box-uof-img">
-                                        <img style="width: 100%; height: 466px;" src="/product-image/@Model.ImageModelView[0].name" class=" ls-is-cached lazyloaded" />
+                                        <img style="width: 100%; height: 466px;" src="/product-image/@Model.images" class=" ls-is-cached lazyloaded" />
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -261,9 +261,9 @@
                                                     @foreach (var itemSize in Model.SizesModelView)
                                                     {
                                                         if(step == 0){
-                                                            <li onclick="AddSize(@itemSize.id,this)" class="sizes tick" data-size="@itemSize.id">@itemSize.name</li>
+                                                            <li onclick="AddSize(@itemSize,this)" class="sizes tick" data-size="@itemSize">@itemSize</li>
                                                         }else{
-                                                            <li onclick="AddSize(@itemSize.id,this)" class="sizes" data-size="@itemSize.id">@itemSize.name</li>
+                                                            <li onclick="AddSize(@itemSize,this)" class="sizes" data-size="@itemSize">@itemSize</li>
                                                         }
                                                         step++;
                                                     }
@@ -584,7 +584,7 @@
                         product_id: $(".product-id").val(),
                         quantity: $("#quantity").val(),
                         price: price,
-                        sizeId: parseInt($(".sizes.tick").attr('data-size'))
+                        size: parseInt($(".sizes.tick").attr('data-size'))
                     },
                     beforeSend: function () {
                     },

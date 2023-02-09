@@ -153,7 +153,7 @@
                                             decimal totalPrice = item.price.Value;
                                             _totalPrice += totalPrice;
                                             <tr>
-                                                <td width="20%" class="text-left custom-td"><img width="100px;" height="75px" src="/product-image/@item.productModelView.ImageModelView[0].name" alt="" class="img-cart" /></td>
+                                                <td width="20%" class="text-left custom-td"><img width="100px;" height="75px" src="/product-image/@item.productModelView.images" alt="" class="img-cart" /></td>
                                                 <td class="text-left custom-td">@item.productModelView.name</td>
                                                 <td class="text-left custom-td" style="width:60px">x @item.quantity</td>
                                                 <td class="text-left custom-td" style="text-align: right !important;">@totalPrice.ToString("#,###")<i> đ</i></td>
@@ -286,12 +286,6 @@
                     // Loading('hiden');
                 },
                 success: function (response) {
-                    //if (response.success) {
-                    //    $("#CartsModal").modal("show");
-                    //}
-                    //else{
-                    //    $("#categoryModal").modal("show");
-                    //}
                 }
             })
 
@@ -542,7 +536,6 @@
 
 
         function AddOrder() {
-            debugger
             if (self.delivery == 0) {
                 self.payment = 0;
                  jQuery.validator.addMethod("headphone", function (value, element) {

@@ -244,9 +244,9 @@
 
                                             <div class="ribbon"><span>@item.statusstr</span></div>
                                         }
-                                        @if (item.ImageModelView != null && item.ImageModelView.Count > 0)
+                                        @if (!string.IsNullOrEmpty(item.images))
                                         {
-                                            <img width="234" height="234" class=" ls-is-cached lazyloaded" src="/product-image/@item.ImageModelView[0].name">
+                                            <img width="234" height="234" class=" ls-is-cached lazyloaded" src="/product-image/@item.images">
                                         }
 
                                     </div>

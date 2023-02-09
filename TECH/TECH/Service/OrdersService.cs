@@ -190,7 +190,7 @@ namespace TECH.Service
                         order_id = view.order_id,
                         product_id = view.product_id,
                         color = view.color,
-                        sizeId = view.sizeId,
+                        size = view.size,
                         price = view.price.Value,
                         quantity = view.quantity
                         //code = view.code

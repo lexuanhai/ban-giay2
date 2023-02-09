@@ -16,13 +16,13 @@ namespace TECH.Data.DatabaseEntity
         public Products? Products { get; set; }
 
 
-        [Column(TypeName = "nvarchar(200)")]
-        public string? color { get; set; }
+        //[Column(TypeName = "nvarchar(200)")]
+        //public string? color { get; set; }
 
         public int? user_id { get; set; }
         [Column(TypeName = "decimal(18,0)")]
         public decimal? price { get; set; }
-        public int? sizeId { get; set; }
+        public int? size { get; set; }
 
         public int? quantity { get; set; }
     }

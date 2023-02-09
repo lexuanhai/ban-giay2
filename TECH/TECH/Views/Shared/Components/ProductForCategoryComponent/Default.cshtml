@@ -145,10 +145,11 @@
                                                 <div class="ribbon"><span>@itemProduct.statusstr</span></div>
                                             }
                                       
-                                            @if (itemProduct.ImageModelView != null && itemProduct.ImageModelView.Count > 0)
+                                          @*  @if (itemProduct.ImageModelView != null && itemProduct.ImageModelView.Count > 0)
                                         {
-                                                <img width="234" height="234" class=" ls-is-cached lazyloaded" src="/product-image/@itemProduct.ImageModelView[0].name">
-                                        }
+                                                <img width="234" height="234" class=" ls-is-cached lazyloaded" src="/product-image/@itemProduct.images">
+                                        }*@
+                                            <img width="234" height="234" class=" ls-is-cached lazyloaded" src="/product-image/@itemProduct.images">
                                     </div>
                                     <div class="info">
                                         <h3>

@@ -51,9 +51,8 @@ namespace TECH.Service
                 id = c.id,
                 user_id = c.user_id,
                 product_id = c.product_id,
-                color = c.color,
                 price = c.price,
-                sizeId = c.sizeId,
+                size = c.size,
                 quantity = c.quantity
             }).ToList();
 
@@ -68,9 +67,8 @@ namespace TECH.Service
                     id = c.id,
                     user_id = c.user_id,
                     product_id = c.product_id,
-                    color = c.color,
                     price = c.price,
-                    sizeId = c.sizeId,
+                    size = c.size,
                     quantity = c.quantity
                 }).FirstOrDefault();
 
@@ -89,9 +87,8 @@ namespace TECH.Service
                     {
                         user_id = view.user_id,
                         product_id = view.product_id,
-                        color = view.color,
                         price = view.price,
-                        sizeId = view.sizeId,
+                        size = view.size,
                         quantity = view.quantity,
                     };
                     _cartsRepository.Add(carts);

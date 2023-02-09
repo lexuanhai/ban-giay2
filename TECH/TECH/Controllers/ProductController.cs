@@ -92,16 +92,7 @@ namespace TECH.Controllers
 
                     if (model.category_id.HasValue && model.category_id.Value > 0)
                     {
-                        var category = _categoryService.GetByid(model.category_id.Value);
-                        //var productimages = _productsImagesService.GetImageProduct(model.id);
-                        //if (productimages != null && productimages.Count > 0)
-                        //{
-                        //    var lstImages = _imagesService.GetImageName(productimages);
-                        //    if (lstImages != null && lstImages.Count > 0)
-                        //    {
-                        //        model.avatar = lstImages[0].name;
-                        //    }
-                        //}
+                        var category = _categoryService.GetByid(model.category_id.Value);                        
                         if (category != null && !string.IsNullOrEmpty(category.name))
                         {
                             model.categorystr = category.name;
@@ -116,33 +107,24 @@ namespace TECH.Controllers
                     {
                         model.categorystr = "";
                     }
-                    //var quantiyProduct = _productQuantityService.GetProductQuantity(model.id);
-                    //if (quantiyProduct != null && quantiyProduct.Count > 0)
-                    //{
-                    //    var lstSizeModel = new List<SizesModelView>();
-                    //    foreach (var itemSize in quantiyProduct)
-                    //    {
-                    //        if (itemSize.AppSizeId.HasValue && itemSize.AppSizeId.Value > 0)
-                    //        {
-                    //            var sizes = _sizesService.GetByid(itemSize.AppSizeId.Value);
-                    //            if (sizes != null)
-                    //            {
-                    //                lstSizeModel.Add(sizes);
-                    //            }
-                    //        }
-                    //    }
-                    //    model.SizesModelView = lstSizeModel;
-
-                    //}
-                    //var productImage = _productsImagesService.GetImageProduct(model.id);
-                    //if (productImage != null && productImage.Count > 0)
-                    //{
-                    //    var image = _imagesService.GetImageName(productImage);
-                    //    if (image != null && image.Count > 0)
-                    //    {
-                    //        model.ImageModelView = image;
-                    //    }
-                    //}
+                    if (!string.IsNullOrEmpty(model.sizes))
+                    {
+                        var sizesSplit = model.sizes.Split(',');
+                        if (sizesSplit != null && sizesSplit.Count() > 0)
+                        {
+                            var lstSize = new List<int>();
+                            foreach (var itemSize in sizesSplit)
+                            {
+                                if (!string.IsNullOrEmpty(itemSize))
+                                {
+                                    lstSize.Add(Convert.ToInt32(itemSize));
+                                   
+                                }
+                            }
+                            model.SizesModelView = lstSize;
+                        }
+                    }
+                    
                     model.trademark = !string.IsNullOrEmpty(model.trademark) ? model.trademark : "";
                     model.price_sell_str = model.price_sell.HasValue && model.price_sell.Value > 0 ? model.price_sell.Value.ToString("#,###") : "";
                     model.price_import_str = model.price_import.HasValue && model.price_import.Value > 0 ? model.price_import.Value.ToString("#,###") : "";
@@ -173,15 +155,7 @@ namespace TECH.Controllers
                         if (item.category_id.HasValue && item.category_id.Value > 0)
                         {
                             var category = _categoryService.GetByid(item.category_id.Value);
-                           // var productimages = _productsImagesService.GetImageProduct(item.id);
-                            //if (productimages != null && productimages.Count > 0)
-                            //{
-                            //    var lstImages = _imagesService.GetImageName(productimages);
-                            //    if (lstImages != null && lstImages.Count > 0)
-                            //    {
-                            //        item.avatar = lstImages[0].name;
-                            //    }
-                            //}
+                          
                             if (category != null && !string.IsNullOrEmpty(category.name))
                             {
                                 item.categorystr = category.name;
@@ -195,15 +169,7 @@ namespace TECH.Controllers
                         {
                             item.categorystr = "";
                         }
-                        //var productImage = _productsImagesService.GetImageProduct(item.id);
-                        //if (productImage != null && productImage.Count > 0)
-                        //{
-                        //    var image = _imagesService.GetImageName(productImage);
-                        //    if (image != null && image.Count > 0)
-                        //    {
-                        //        item.ImageModelView = image;
-                        //    }
-                        //}
+                      
                         item.trademark = !string.IsNullOrEmpty(item.trademark) ? item.trademark : "";
                         item.price_sell_str = item.price_sell.HasValue && item.price_sell.Value > 0 ? item.price_sell.Value.ToString("#,###") : "";
                         item.price_import_str = item.price_import.HasValue && item.price_import.Value > 0 ? item.price_import.Value.ToString("#,###") : "";

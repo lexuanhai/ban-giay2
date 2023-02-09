@@ -22,7 +22,7 @@ namespace TECH.Data.DatabaseEntity
         public string? color { get; set; }
         [Column(TypeName = "decimal(18,0)")]
         public decimal? price { get; set; }
-        public int? sizeId { get; set; }
+        public int? size { get; set; }
         public int? quantity { get; set; }
     }
 }

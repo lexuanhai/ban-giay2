@@ -53,7 +53,8 @@ namespace TECH.Areas.Admin.Models
         public string? price_import_str { get; set; }
 
         public List<ImageModelView> ImageModelView { get; set; }
-        public List<SizesModelView> SizesModelView { get; set; }
+        //public List<SizesModelView> SizesModelView { get; set; }
+        public List<int> SizesModelView { get; set; }
         public string? trademark { get; set; }
         public int? trademarkId { get; set; }
         public string? trademarkStr { get; set; }

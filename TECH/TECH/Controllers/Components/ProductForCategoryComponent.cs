@@ -15,18 +15,12 @@ namespace TECH.Controllers.Components
     {
         private readonly IProductsService _productService;
         private readonly ICategoryService _categoryService;
-        //private readonly IImagesService _imagesService;
-        //private readonly IProductsImagesService _productsImagesService;
         public ProductForCategoryComponent(IProductsService productService,
             ICategoryService categoryService
-            //IImagesService imagesService,
-            //IProductsImagesService productsImagesService
             )
         {
             _productService = productService;
             _categoryService = categoryService;
-            //_imagesService = imagesService;
-            //_productsImagesService = productsImagesService;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()

@@ -1306,8 +1306,6 @@ F:\Hoc Tap\C#\Website\ban-giay-lost-new\TECH\TECH\obj\Debug\net6.0\refint\TECH.d
 F:\Hoc Tap\C#\Website\ban-giay-lost-new\TECH\TECH\obj\Debug\net6.0\TECH.pdb
 F:\Hoc Tap\C#\Website\ban-giay-lost-new\TECH\TECH\obj\Debug\net6.0\TECH.genruntimeconfig.cache
 F:\Hoc Tap\C#\Website\ban-giay-lost-new\TECH\TECH\obj\Debug\net6.0\ref\TECH.dll
-C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
-C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\appsettings.Development.json
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\appsettings.json
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\TECH.staticwebassets.runtime.json
@@ -1416,6 +1414,7 @@ C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\ja\Microsoft.CodeAnalysi
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\ko\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\pl\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
+C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Features.resources.dll
@@ -1481,6 +1480,7 @@ C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\ko\Microsoft.CodeAnalysi
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\pl\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\pt-BR\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\ru\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\tr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\zh-Hans\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
 C:\hoc-tap\ban-giay-lost-new\TECH\TECH\bin\Debug\net6.0\cs\Microsoft.CodeAnalysis.VisualBasic.Features.resources.dll
