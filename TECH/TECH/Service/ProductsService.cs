@@ -161,7 +161,7 @@ namespace TECH.Service
                     dataServer.price_reduced = view.price_reduced.HasValue ? view.price_reduced.Value : 0;
 
                     dataServer.status = view.status;
-                    dataServer.images = view.images;
+                    //dataServer.images = view.images;
                     dataServer.sizes = view.sizes;
                     dataServer.description = view.description;
                     _productsRepository.Update(dataServer);                                        

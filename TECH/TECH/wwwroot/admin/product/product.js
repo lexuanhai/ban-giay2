@@ -415,9 +415,9 @@
                     if (self.ProductImages != null && self.ProductImages != "") {
                         self.UploadFileImageProduct(self.Product.id);
                     }
-                    if (self.ProductUpdateImage != null && self.ProductUpdateImage.length > 0) {
-                        self.RemoveImageServer(self.ProductUpdateImage);
-                    }
+                    //if (self.ProductUpdateImage != null && self.ProductUpdateImage.length > 0) {
+                    //    self.RemoveImageServer(self.ProductUpdateImage);
+                    //}
                 }
                 else {
                     self.AddProduct(self.Product);
